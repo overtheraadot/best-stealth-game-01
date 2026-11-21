@@ -28,6 +28,12 @@ export function applyShotScene(game, shot) {
     tomas.x = 250; tomas.y = 252; tomas.angle = Math.PI; tomas.suspicion = 0.22;
     const mara = guards[0];
     mara.x = 380; mara.y = 235; mara.angle = Math.PI; mara.suspicion = 0;
+    // Ilya and Wren keep their mid-room patrol spots for this shot:
+    // Ilya must not sit on the exit window, Wren not on the floor edge.
+    const ilya = guards[2];
+    ilya.x = 740; ilya.y = 380; ilya.angle = Math.PI; ilya.suspicion = 0;
+    const wren = guards[3];
+    wren.x = 480; wren.y = 340; wren.angle = 0; wren.suspicion = 0;
     return;
   }
   if (shot === 'alarm') {
@@ -46,6 +52,8 @@ export function applyShotScene(game, shot) {
     mara.state = 'chase'; mara.suspicion = 0.96; mara.chaseTimer = 3.2;
     const wren = guards[3];
     wren.x = 520; wren.y = 340; wren.angle = Math.PI; wren.suspicion = 0.5;
+    const ilya = guards[2];
+    ilya.x = 740; ilya.y = 380; ilya.angle = Math.PI; ilya.suspicion = 0;
     return;
   }
   if (shot === 'win') {
